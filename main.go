@@ -46,7 +46,7 @@ func Key(password, salt []byte, iter, keyLen int, h func() hash.Hash) []byte {
 }
 
 func main() {
-	dk := pbkdf2.Key([]byte("some password"), []byte("salt"), 4096, 32, sha1.New)
+	dk := Key([]byte("some password"), []byte("salt"), 4096, 32, sha1.New)
 	for i := 0; i < len(dk); i++ {
 		fmt.Printf("%x", dk[i])
 	}
